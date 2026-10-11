@@ -111,11 +111,6 @@ public class ClientCommands implements ClientModInitializer {
         StringReader reader = new StringReader(command);
         reader.skipWhitespace();
         String theCommand = reader.readUnquotedString();
-        if (clientcommandsCommands.contains(theCommand) && !COMMANDS_TO_NOT_SEND_TO_SERVER.contains(theCommand)) {
-            if (ClientPlayNetworking.canSend(CommandExecutionCustomPayload.TYPE)) {
-                ClientPlayNetworking.send(new CommandExecutionCustomPayload(command));
-            }
-        }
     }
 
     public static boolean isClientcommandsCommand(String commandName) {
